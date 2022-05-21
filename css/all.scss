@@ -1,0 +1,322 @@
+@import "./base/reset";
+@import "./layout/layout-elm";
+@import "./rwd/rwd";
+
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: $base-white;
+}
+
+header {
+  width: 100%;
+  margin: 0 auto;
+  background: $base-color;
+}
+
+.header__wrap {
+  font-family: $font-base;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 50px 0px;
+  box-shadow: #b4cada 20px 10px 50px;
+
+  .myimg {
+    margin: 50px 30px 0px 0px;
+  }
+
+  .myauto {
+
+    color: $base-white;
+    margin: 20px 0px 0px 20px;
+    flex-wrap: nowrap;
+    line-height: 20px;
+
+    ul {
+      li {
+        line-height: 1.8rem;
+      }
+    }
+
+    h1 {
+      margin-bottom: 10px;
+      font-size: 36px;
+
+      span {
+        margin-left: 10px;
+        font-size: 15px;
+      }
+    }
+
+    h2 {
+      margin: 5px 0px 5px 0px;
+      font-weight: bold;
+    }
+  }
+
+}
+
+@include mobile{
+  .myimg {
+    margin: 0px !important; 
+    img{
+      margin: 0px 0px 0px 30px;
+    }
+}
+  .myauto{
+    ul{
+      display: flex;
+    flex-direction: column;
+    align-items: center;
+    }
+  }
+  .mytxt{
+    width: 82%;
+    text-align: center;
+  }
+}
+
+
+main {
+  margin: 0 auto;
+  max-width: 60%;
+}
+
+@include mobile{
+  main{
+    max-width: 90%;
+  }
+}
+
+.edu {
+  @extend %title-mt;
+
+  h2 {
+    @extend %h2-set;
+
+    span {
+      @extend %span-set;
+    }
+
+  }
+
+  ul {
+    @extend %ul-set;
+
+    .edu-item {
+      list-style: none;
+      line-height: 40px;
+      position: relative;
+    }
+
+    .edu-item:before {
+      @extend %li-bef-set;
+      position: relative;
+    }
+
+    .timeline:after {
+      content: "";
+      position: absolute;
+      border-left: 1px solid $base-color;
+      z-index: -1;
+      width: 100px;
+      left: 3.5px;
+      top: 20px;
+      height: 40px;
+    }
+  }
+}
+
+@include mobile{
+
+  ul{
+    font-size: 0.9rem;
+    margin-left: 0px !important;
+  }
+  .timeline:after {
+    
+  }
+}
+
+.skill {
+  @extend %title-mt;
+
+  h2 {
+    @extend %h2-set;
+    
+    span {
+      @extend %span-set;
+    }
+  }
+
+  ul {
+    @extend %ul-set;
+
+    li {
+      display: inline_block;
+      margin-right: 10px;
+      line-height: 40px;
+      font-weight: bold;
+      span{
+        font-weight: normal;
+      }
+    }
+
+    li:before {
+      @extend %li-bef-set;
+    }
+  }
+}
+
+.work {
+  @extend %title-mt;
+
+  h2 {
+    @extend %h2-set;
+
+    span {
+      @extend %span-set;
+    }
+  }
+
+  .work_ul {
+    @extend %ul-set;
+
+    .title {
+      display: inline_block;
+      margin: 0px 10px 0px 0px;
+      padding-left: 10px;
+      line-height: 40px;
+      z-index: 1;
+      position: relative;
+      color: white;
+      outline: none;
+      background-color: $base-color;
+    }
+
+    .title::after {
+      content: '+';
+      font-size: 1.2rem;
+      float: right;
+      margin-right: 20px;
+    }
+  }
+
+  .title::before {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fc2f70;
+    transform-origin: center top;
+    transform: scaleY(0);
+    transition: transform 0.25s ease-in-out;
+  }
+
+  .title:hover {
+    cursor: pointer;
+  }
+
+  .title:hover::before {
+    transform-origin: center bottom;
+    transform: scaleY(1);
+  }
+
+  
+
+  p {
+    padding: 30px 50px;
+    margin-bottom: 20px;
+    line-height: 30px;
+  }
+
+}
+
+@include mobile{
+  .work_ul{
+    .title{
+      font-size: 0.5rem;
+    }
+  }
+}
+
+
+.pro {
+  @extend %title-mt;
+
+  h2 {
+    @extend %h2-set;
+
+    span {
+      @extend %span-set;
+    }
+  }
+  .box__list{
+    margin: 25px 0px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    .box{
+      margin: 20px 10px;
+      width: 250px;
+      height: 340px;
+      background-color: white;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      box-shadow: #dfe5ea 5px 10px 20px;
+
+      img{
+        border: 1px black solid;
+        border-radius: 8px;
+      }
+      h1{
+        color: $base-color;
+        font-size: 1.2rem;
+        font-weight: bold;
+        margin: 10px 0px;
+      }
+      p{
+        text-align: center;
+        padding: 0px 30px;
+      }
+      button{
+        background-color: $base-color;
+        border: none;
+        padding: 10px;
+        border-radius: 8px;
+        margin-top: 10px;
+        a{
+          color: $base-white;
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $base-color;
+  color: $base-white;
+  min-height: 20vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  li{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+}
