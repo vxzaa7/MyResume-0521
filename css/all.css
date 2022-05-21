@@ -102,12 +102,13 @@ body {
 }
 
 header {
-  width: 100%;
   margin: 0 auto;
   background: #182f5f;
 }
 
 .header__wrap {
+  width: 50%;
+  margin: 0 auto;
   font-family: "Noto Sans TC", sans-serif;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -118,8 +119,6 @@ header {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   padding: 50px 0px;
-  -webkit-box-shadow: #b4cada 20px 10px 50px;
-          box-shadow: #b4cada 20px 10px 50px;
 }
 
 .header__wrap .myimg {
@@ -154,11 +153,23 @@ header {
 }
 
 @media (max-width: 428px) {
+  .header__wrap {
+    width: 80%;
+  }
   .myimg {
     margin: 0px !important;
   }
   .myimg img {
     margin: 0px 0px 0px 30px;
+  }
+  .myauto {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
   }
   .myauto ul {
     display: -webkit-box;
@@ -214,6 +225,9 @@ main {
   ul {
     font-size: 0.9rem;
     margin-left: 0px !important;
+  }
+  ul .timeline:after {
+    height: 45px !important;
   }
 }
 

@@ -15,18 +15,19 @@ body {
 }
 
 header {
-  width: 100%;
   margin: 0 auto;
   background: $base-color;
 }
 
 .header__wrap {
+  
+  width: 50%;
+  margin: 0 auto;
   font-family: $font-base;
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding: 50px 0px;
-  box-shadow: #b4cada 20px 10px 50px;
 
   .myimg {
     margin: 50px 30px 0px 0px;
@@ -64,6 +65,9 @@ header {
 }
 
 @include mobile{
+  .header__wrap{
+    width: 80%;
+  }
   .myimg {
     margin: 0px !important; 
     img{
@@ -71,6 +75,8 @@ header {
     }
 }
   .myauto{
+    display: flex;
+    flex-direction: column;
     ul{
       display: flex;
     flex-direction: column;
@@ -139,10 +145,11 @@ main {
   ul{
     font-size: 0.9rem;
     margin-left: 0px !important;
+    .timeline:after {
+      height: 45px !important;
+    }
   }
-  .timeline:after {
-    
-  }
+  
 }
 
 .skill {
